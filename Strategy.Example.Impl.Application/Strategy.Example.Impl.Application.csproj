@@ -40,7 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculateApplicationService.cs" />
+    <Compile Include="StrategyWithDI\EnumContracts\ICalculate.cs" />
+    <Compile Include="StrategyWithDI\EnumImplementations\CalculateTypeA.cs" />
+    <Compile Include="StrategyWithDI\EnumImplementations\CalculateTypeB.cs" />
+    <Compile Include="StrategyWithDI\EnumImplementations\CalculateTypeC.cs" />
+    <Compile Include="StrategyWithReflection\CalculateApplicationService.cs" />
+    <Compile Include="StrategyWithDI\CalculateApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +54,7 @@
       <Name>Strategy.Example.Contracts.Application</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

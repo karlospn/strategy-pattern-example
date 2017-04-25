@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using Autofac;
 using Autofac.Integration.Wcf;
 using Strategy.Example.Contracts.Application;
-using Strategy.Example.Impl.Application;
+using Strategy.Example.Impl.Application.StrategyWithDI;
+using Strategy.Example.Impl.Application.StrategyWithDI.EnumContracts;
+using Strategy.Example.Impl.Application.StrategyWithDI.EnumImplementations;
 
 namespace Strategy.Example.WCF.WebService
 {
@@ -21,6 +18,9 @@ namespace Strategy.Example.WCF.WebService
                 var builder = new ContainerBuilder();
                 builder.RegisterType<CalculateService>().As<ICalculateService>();
                 builder.RegisterType<CalculateApplicationService>().As<ICalculateApplicationService>();
+                builder.RegisterType<CalculateTypeA>().As<ICalculate>();
+                builder.RegisterType<CalculateTypeB>().As<ICalculate>();
+                builder.RegisterType<CalculateTypeC>().As<ICalculate>();
                 AutofacHostFactory.Container = builder.Build();
             }
             catch (Exception exception)
