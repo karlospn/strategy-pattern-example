@@ -5,6 +5,7 @@ using Strategy.Example.Contracts.Application;
 using Strategy.Example.Impl.Application.StrategyWithDI;
 using Strategy.Example.Impl.Application.StrategyWithDI.EnumContracts;
 using Strategy.Example.Impl.Application.StrategyWithDI.EnumImplementations;
+using Strategy.Example.Impl.Application.StrategyWithReflection.EnumContracts;
 
 namespace Strategy.Example.WCF.WebService
 {
@@ -16,11 +17,7 @@ namespace Strategy.Example.WCF.WebService
             try
             {
                 var builder = new ContainerBuilder();
-                builder.RegisterType<CalculateService>().As<ICalculateService>();
-                builder.RegisterType<CalculateApplicationService>().As<ICalculateApplicationService>();
-                builder.RegisterType<CalculateTypeA>().As<ICalculate>();
-                builder.RegisterType<CalculateTypeB>().As<ICalculate>();
-                builder.RegisterType<CalculateTypeC>().As<ICalculate>();
+                Registrations(builder);
                 AutofacHostFactory.Container = builder.Build();
             }
             catch (Exception exception)
@@ -30,6 +27,17 @@ namespace Strategy.Example.WCF.WebService
             }
 
         }
+
+        private void Registrations(ContainerBuilder builder)
+        {
+            builder.RegisterType<CalculateService>().As<ICalculateService>();
+            //builder.RegisterType<CalculateApplicationService>().As<ICalculateApplicationService>();
+            builder.RegisterType<Impl.Application.StrategyWithReflection.CalculateApplicationService>().As<ICalculateApplicationService>();
+            builder.RegisterType<CalculateTypeA>().As<ICalculate>();
+            builder.RegisterType<CalculateTypeB>().As<ICalculate>();
+            builder.RegisterType<CalculateTypeC>().As<ICalculate>();
+        }
+
 
         protected void Session_Start(object sender, EventArgs e)
         {

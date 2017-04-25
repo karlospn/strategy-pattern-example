@@ -47,6 +47,14 @@
     <Compile Include="StrategyWithReflection\CalculateApplicationService.cs" />
     <Compile Include="StrategyWithDI\CalculateApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrategyWithReflection\Dictionary\DictionaryConfiguration.cs" />
+    <Compile Include="StrategyWithReflection\EnumContracts\ICalculateBase.cs" />
+    <Compile Include="StrategyWithReflection\EnumContracts\ICalculateTypeA.cs" />
+    <Compile Include="StrategyWithReflection\EnumContracts\ICalculateTypeB.cs" />
+    <Compile Include="StrategyWithReflection\EnumContracts\ICalculateTypeC.cs" />
+    <Compile Include="StrategyWithReflection\EnumImplementations\CalculateTypeC.cs" />
+    <Compile Include="StrategyWithReflection\EnumImplementations\CalculateTypeB.cs" />
+    <Compile Include="StrategyWithReflection\EnumImplementations\CalculateTypeA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Strategy.Example.Contracts.Application\Strategy.Example.Contracts.Application.csproj">
